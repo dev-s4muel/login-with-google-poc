@@ -12,7 +12,7 @@ public class SpringConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(registry -> {
-                    registry.requestMatchers("/", "/login").permitAll();
+                    registry.requestMatchers("/", "/login", "/start-google-login").permitAll();
                     registry.anyRequest().authenticated();
                 })
                 .oauth2Login(oauth2login -> {
